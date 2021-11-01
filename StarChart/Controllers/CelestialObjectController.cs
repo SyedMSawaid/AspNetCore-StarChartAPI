@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using StarChart.Data;
+using StarChart.Models;
 
 namespace StarChart.Controllers
 {
@@ -47,7 +48,7 @@ namespace StarChart.Controllers
         [HttpGet("{name}")]
         public IActionResult GetByName(string name)
         {
-            var result = _context.CelestialObjects.FirstOrDefault(c => c.Name == name);
+            CelestialObject result = _context.CelestialObjects.FirstOrDefault(c => c.Name == name);
             if (result == null)
             {
                 return NotFound();
